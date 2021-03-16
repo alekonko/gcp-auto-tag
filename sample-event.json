@@ -1,0 +1,161 @@
+{
+  "insertId": "illh9ve5vfw4",
+  "logName": "projects/ocp-isolated/logs/cloudaudit.googleapis.com%2Factivity",
+  "operation": {
+    "first": true,
+    "id": "operation-1615930572279-5bdae27be0faa-c4b19c04-45bd64c4",
+    "producer": "compute.googleapis.com"
+  },
+  "protoPayload": {
+    "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+    "authenticationInfo": {
+      "principalEmail": "XXX@XXX.com"
+    },
+    "authorizationInfo": [
+      {
+        "granted": true,
+        "permission": "compute.instances.create",
+        "resourceAttributes": {
+          "name": "projects/ocp-isolated/zones/europe-west3-c/instances/vmtolabel005",
+          "service": "compute",
+          "type": "compute.instances"
+        }
+      },
+      {
+        "granted": true,
+        "permission": "compute.disks.create",
+        "resourceAttributes": {
+          "name": "projects/ocp-isolated/zones/europe-west3-c/disks/vmtolabel005",
+          "service": "compute",
+          "type": "compute.disks"
+        }
+      },
+      {
+        "granted": true,
+        "permission": "compute.subnetworks.use",
+        "resourceAttributes": {
+          "name": "projects/ocp-isolated/regions/europe-west3/subnetworks/subnet-eu-west-3",
+          "service": "compute",
+          "type": "compute.subnetworks"
+        }
+      },
+      {
+        "granted": true,
+        "permission": "compute.instances.setServiceAccount",
+        "resourceAttributes": {
+          "name": "projects/ocp-isolated/zones/europe-west3-c/instances/vmtolabel005",
+          "service": "compute",
+          "type": "compute.instances"
+        }
+      }
+    ],
+    "methodName": "beta.compute.instances.insert",
+    "request": {
+      "@type": "type.googleapis.com/compute.instances.insert",
+      "canIpForward": false,
+      "confidentialInstanceConfig": {
+        "enableConfidentialCompute": false
+      },
+      "deletionProtection": false,
+      "description": "",
+      "disks": [
+        {
+          "autoDelete": true,
+          "boot": true,
+          "deviceName": "vmtolabel005",
+          "initializeParams": {
+            "diskSizeGb": "10",
+            "diskType": "projects/ocp-isolated/zones/europe-west3-c/diskTypes/pd-balanced",
+            "sourceImage": "projects/debian-cloud/global/images/debian-10-buster-v20210217"
+          },
+          "mode": "READ_WRITE",
+          "type": "PERSISTENT"
+        }
+      ],
+      "displayDevice": {
+        "enableDisplay": false
+      },
+      "machineType": "projects/ocp-isolated/zones/europe-west3-c/machineTypes/f1-micro",
+      "name": "vmtolabel005",
+      "networkInterfaces": [
+        {
+          "subnetwork": "projects/ocp-isolated/regions/europe-west3/subnetworks/subnet-eu-west-3"
+        }
+      ],
+      "reservationAffinity": {
+        "consumeReservationType": "ANY_ALLOCATION"
+      },
+      "scheduling": {
+        "automaticRestart": true,
+        "onHostMaintenance": "MIGRATE",
+        "preemptible": false
+      },
+      "serviceAccounts": [
+        {
+          "email": "351803534639-compute@developer.gserviceaccount.com",
+          "scopes": [
+            "https://www.googleapis.com/auth/devstorage.read_only",
+            "https://www.googleapis.com/auth/logging.write",
+            "https://www.googleapis.com/auth/monitoring.write",
+            "https://www.googleapis.com/auth/servicecontrol",
+            "https://www.googleapis.com/auth/service.management.readonly",
+            "https://www.googleapis.com/auth/trace.append"
+          ]
+        }
+      ],
+      "shieldedInstanceConfig": {
+        "enableIntegrityMonitoring": true,
+        "enableSecureBoot": false,
+        "enableVtpm": true
+      }
+    },
+    "requestMetadata": {
+      "callerIp": "193.203.233.72",
+      "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36,gzip(gfe),gzip(gfe)",
+      "destinationAttributes": {
+        
+      },
+      "requestAttributes": {
+        "auth": {
+          
+        },
+        "reason": "8uSywAYQGg5Db2xpc2V1bSBGbG93cw",
+        "time": "2021-03-16T21:36:13.202723Z"
+      }
+    },
+    "resourceLocation": {
+      "currentLocations": [
+        "europe-west3-c"
+      ]
+    },
+    "resourceName": "projects/ocp-isolated/zones/europe-west3-c/instances/vmtolabel005",
+    "response": {
+      "@type": "type.googleapis.com/operation",
+      "id": "3871681616300251683",
+      "insertTime": "2021-03-16T14:36:13.014-07:00",
+      "name": "operation-1615930572279-5bdae27be0faa-c4b19c04-45bd64c4",
+      "operationType": "insert",
+      "progress": "0",
+      "selfLink": "https://www.googleapis.com/compute/beta/projects/ocp-isolated/zones/europe-west3-c/operations/operation-1615930572279-5bdae27be0faa-c4b19c04-45bd64c4",
+      "selfLinkWithId": "https://www.googleapis.com/compute/beta/projects/ocp-isolated/zones/europe-west3-c/operations/3871681616300251683",
+      "startTime": "2021-03-16T14:36:13.017-07:00",
+      "status": "RUNNING",
+      "targetId": "7083024201048431139",
+      "targetLink": "https://www.googleapis.com/compute/beta/projects/ocp-isolated/zones/europe-west3-c/instances/vmtolabel005",
+      "user": "XXXXXX@XXXX",
+      "zone": "https://www.googleapis.com/compute/beta/projects/ocp-isolated/zones/europe-west3-c"
+    },
+    "serviceName": "compute.googleapis.com"
+  },
+  "receiveTimestamp": "2021-03-16T21:36:13.597043112Z",
+  "resource": {
+    "labels": {
+      "instance_id": "7083024201048431139",
+      "project_id": "ocp-isolated",
+      "zone": "europe-west3-c"
+    },
+    "type": "gce_instance"
+  },
+  "severity": "NOTICE",
+  "timestamp": "2021-03-16T21:36:12.339301Z"
+}
