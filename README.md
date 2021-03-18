@@ -1,4 +1,4 @@
-# GCP Autolaber Reloaded 2021 - Autolabel object, adapted on GCP 03/2021
+# GCP Autolaber Reloaded 2021 - Autolabel object, adapted for GCP 03/2021
 
 Function che aggiunge custom label (es. label acronimo) alle istanze e relativi dischi quando intercetta una creazione di istanza compute engine.
 
@@ -8,26 +8,17 @@ Original Idea, references:
 
 - [Autolabel object for](https://blog.doit-intl.com/automatically-label-google-cloud-compute-engine-instances-and-disks-upon-creation-5d1245f361c1)
 
-
 Descrizione scenario:
 
-- in fase di creazione compute instance vengono generati di log di audit
-
-- tramite un sink sono catturati ed inseriti in una coda pub/sub.
-
-- il sink è usato dalla function python in questo repo
+- in fase di creazione compute instance vengono generati di log di audit che sono inviati in una coda pub/sub.
+- la function è istanziata dai messaggi nella coda
 
 DONE:
 
 - Change Skink syntax (add filter for a custom project) for new cloudlog
 - fix python code to new json scheme
 - Add label "acronimo: skrt0" (attenzione, label minuscole)
-
-TODO:
-
-- imparare a far miglior debug o a versionare function
-
-
+- add logging and basic error handling
 
 ## GCP Configurations Step
 
@@ -64,10 +55,9 @@ operation.first="true"
 setting authentication outside cloudshell or function
 
 ```bash
-export GOOGLE_APPLICATION_CREDENTIALS="/home/u357595/.gcp/osServiceAccount.json"
+export GOOGLE_APPLICATION_CREDENTIALS="~/.gcp/osServiceAccount.json"
 ```
 
 ```bash
 gcloud beta compute --project=ocp-isolated instances create vmtolabel006 --zone=europe-west3-c --machine-type=f1-micro --subnet=subnet-eu-west-3 --no-address --maintenance-policy=MIGRATE --service-account=351803534639-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append --image=debian-10-buster-v20210217 --image-project=debian-cloud --boot-disk-size=10GB --boot-disk-type=pd-balanced --boot-disk-device-name=vmtolabel005 --no-shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring --reservation-affinity=any
 ```
-
